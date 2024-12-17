@@ -12,41 +12,6 @@ export class ControllersController {
     private readonly compressionService: CompressionService,
   ) {}
 
-  /**
-   * @swagger
-   * /controllers/app-encryption-key:
-   *   post:
-   *     summary: Retrieve and compress the application encryption key.
-   *     description: This endpoint retrieves the application encryption key from the configuration, compresses it using the CompressionService, and returns it in a compressed format.
-   *     responses:
-   *       200:
-   *         description: Successfully retrieved and compressed encryption key.
-   *         content:
-   *           application/json:
-   *             schema:
-   *               type: object
-   *               properties:
-   *                 status:
-   *                   type: integer
-   *                   example: 200
-   *                 encryption_key:
-   *                   type: string
-   *                   description: Base64-encoded compressed encryption key.
-   *                   example: "eJxLTE1Vw... (truncated)"
-   *       500:
-   *         description: Internal server error when fetching the encryption key.
-   *         content:
-   *           application/json:
-   *             schema:
-   *               type: object
-   *               properties:
-   *                 status:
-   *                   type: integer
-   *                   example: 500
-   *                 message:
-   *                   type: string
-   *                   example: "Failed to fetch application encryption key"
-   */
   @Post('/')
   async getAppEncryptionKey() {
     try {

@@ -54,6 +54,7 @@ export class Pagination {
           .select({ count: sql`count(*)`.mapWith(Number) })
           .from(drizzleModel)
       )[0];
+
       const finalPageNumber = Math.ceil(totalRowCount / pageSize);
 
       if (page < 1 || page > finalPageNumber) {
